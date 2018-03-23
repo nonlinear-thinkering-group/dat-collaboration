@@ -85,7 +85,7 @@ function HostFile(file){
 
 function TrackFile(file, host){
     // 1. Tell Dat where to download the files
-    Dat('./dat-download', {
+    Dat('./dats/'+file, {
       // 2. Tell Dat what link I want
       key: host,
       // (a 64 character hash from above)
@@ -97,11 +97,11 @@ function TrackFile(file, host){
       dat.archive.metadata.update(download)
 
       function download () {
-        var progress = mirror({fs: dat.archive, name: '/'}, './dat-download', function (err) {
+        var progress = mirror({fs: dat.archive, name: '/'}, './dats/'+file, function (err) {
           if (err) throw err
           console.log('Done');
         });
-        progress.on('put', function (src) {
+        progress.on('put-end', function (src) {
           console.log('Downloading', src.name);
           ShowTransactions();
       });
