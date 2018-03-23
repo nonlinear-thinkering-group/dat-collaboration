@@ -1,0 +1,6 @@
+{"transactions": [
+    {"tid": 1, "value": "apples"},
+    {"root": 1, "tid": 2, "value": "pears"},
+    {"root": 2, "tid": 3, "value": "citrus"},
+    {"root": 3, "tid": 5, "value": "mango"}
+]}
